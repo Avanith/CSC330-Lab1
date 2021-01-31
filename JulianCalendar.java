@@ -76,6 +76,7 @@ public class JulianCalendar {
 					displayArr[row][col] = 0;
 				}
 			} // END INNER FOR LOOP
+			
 			// this works because the else-if won't execute if col is at 0 or 13
 			// Which means that we don't have to worry about the MONTH_SIZES array going out of bounds
 			// We have to do this because the 0th column isn't the start of the months, the 1st is.
@@ -83,33 +84,21 @@ public class JulianCalendar {
 				monthTracker++; // or monthTracker = col - 1;
 			}
 		} // END OUTER FOR LOOP
-		DecimalFormat df = new DecimalFormat("000");
+
 		// Display Array
-		for (int row = 0; row < rowCount; row++) {
-			for (int col = 0; col < colCount; col++) {
+		// displayArr.length gives you the height (rows) of the 2D array.
+		// displayArr[row].length gives you the width (columns) of the 2D array.
+		for (int row = 0; row < displayArr.length; row++) {
+			for (int col = 0; col < displayArr[row].length; col++) {
 				if (col == 0 || col == 13)
 					System.out.printf("%6d", displayArr[row][col]);
 				else
-					System.out.printf("%5d", displayArr[row][col]);
+					System.out.printf("  %03d", displayArr[row][col]);
 				
-				//System.out.print(df.format(displayArr[row][col]));
 			}
 			System.out.println(); // make new line
 		} // End outer for-loop
-		
-		/**
-		 * Complete the logic to display a Julian cal given the pre-populated arrays defined by the Class
-		 * 
-		 * 
-		 *
-		 *
-		 Ahmad's WORK GOES HERE 
-		 * 
-		 */
-
-		
-		
-	}
+	} // END JULIAN CALENDAR CLASS
 	
 	/**
 	 * @param args
